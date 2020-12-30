@@ -2,8 +2,10 @@ package com.example.todolist2;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,7 +22,7 @@ import java.util.Map;
 public class SignUp extends AppCompatActivity {
     private TextView toLoginTxt;
 
-    EditText et_Email, et_Name, et_Password;
+    EditText emaill, namee, passwordd;
 
     private FirebaseAuth firebaseAuth;
     private FirebaseUser currentUser;
@@ -39,28 +41,28 @@ public class SignUp extends AppCompatActivity {
 
 
         firebaseAuth = FirebaseAuth.getInstance();
-        et_Email = findViewById(R.id.email);
-        et_Name = findViewById(R.id.name);
-        et_Password = findViewById(R.id.password);
+        emaill = findViewById(R.id.email);
+        namee = findViewById(R.id.name);
+        passwordd = findViewById(R.id.password);
 
 
         Button btn_Register = findViewById(R.id.signup);
         btn_Register.setOnClickListener(view -> {
             Helpers.HideKeyboard(SignUp.this);
 
-            String email = et_Email.getText().toString().trim();
-            String name = et_Name.getText().toString().trim();
-            String password = et_Password.getText().toString().trim();
+            String email = emaill.getText().toString().trim();
+            String name = namee.getText().toString().trim();
+            String password = passwordd.getText().toString().trim();
             if (email.isEmpty()) {
-                et_Email.setError("Please enter email");
+                emaill.setError("Please enter email");
                 return;
             }
             if (name.isEmpty()) {
-                et_Name.setError("Please enter name");
+                namee.setError("Please enter name");
                 return;
             }
             if (password.isEmpty()) {
-                et_Password.setError("Please enter password");
+                passwordd.setError("Please enter password");
                 return;
             }
 

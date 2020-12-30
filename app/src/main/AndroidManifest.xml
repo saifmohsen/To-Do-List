@@ -9,13 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ToDoList">
-        <activity android:name="com.example.todolist2.z_task"></activity>
-        <activity android:name="com.example.todolist2.z_list" />
-        <activity android:name="com.example.todolist2.tasks" />
-        <activity android:name="com.example.todolist2.Home" />
-        <activity android:name="com.example.todolist2.Login" />
-        <activity android:name="com.example.todolist2.SignUp" />
-        <activity android:name="com.example.todolist2.MainActivity">
+        <activity android:name=".view"></activity>
+        <activity android:name=".z_task" />
+        <activity android:name=".z_list" />
+        <activity android:name=".tasks" />
+        <activity android:name=".Home" />
+        <activity android:name=".Login" />
+        <activity android:name=".SignUp" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

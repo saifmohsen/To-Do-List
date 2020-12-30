@@ -9,5 +9,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="purp">#7135D8</color>
+    <color name="uncheck">#5A5760</color>
 
 </resources>

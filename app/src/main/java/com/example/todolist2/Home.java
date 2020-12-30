@@ -2,13 +2,9 @@ package com.example.todolist2;
 
 import android.content.Intent;
 import android.os.Bundle;
-
 import android.view.KeyEvent;
-
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
-import android.widget.ImageButton;
-
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,19 +26,19 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-
 import java.util.ArrayList;
 
 public class Home extends AppCompatActivity {
 
     public ArrayList<TList> lists = new ArrayList<>();
-    EditText et_list_create;
+    EditText create_list;
     RecyclerView listRecycler;
-    ListAdapter listsRecyclerAdapter;
+    ListAdapter listsAdapter;
     private FirebaseAuth firebaseAuth;
     private FirebaseUser currentUser;
     private DatabaseReference listsRef;
     private String uid;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +48,7 @@ public class Home extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         currentUser = firebaseAuth.getCurrentUser();
         if (currentUser == null) {
-            Intent intent = new Intent(Home.this, SignUp.class);
+            Intent intent = new Intent(Home.this, Login.class);
             startActivity(intent);
             finish();
         }
@@ -63,20 +59,21 @@ public class Home extends AppCompatActivity {
         ListPaddingDecoration dividerItemDecoration = new ListPaddingDecoration(this);
         listRecycler.addItemDecoration(dividerItemDecoration);
         listRecycler.setLayoutManager(new LinearLayoutManager(this));
-        listsRecyclerAdapter = new ListAdapter(Home.this, lists);
-        listRecycler.setAdapter(listsRecyclerAdapter);
+        listsAdapter = new ListAdapter(Home.this, lists);
+        listRecycler.setAdapter(listsAdapter);
 
-        et_list_create = findViewById(R.id.create_list_category);
-        et_list_create.setOnEditorActionListener((view, actionId, event) -> {
+        create_list = findViewById(R.id.create_list_category);
+
+        create_list.setOnEditorActionListener((view, actionId, event) -> {
             if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId == EditorInfo.IME_ACTION_SEND) || (actionId == EditorInfo.IME_ACTION_DONE)) {
                 Helpers.HideKeyboard(Home.this);
-                String titleText = et_list_create.getText().toString().trim();
+                String titleText = create_list.getText().toString().trim();
                 if (titleText.isEmpty()) {
-                    et_list_create.setError("please enter title");
+                    create_list.setError("please enter title");
                     return false;
                 } else {
-                    AddTODOList(titleText);
-                    et_list_create.getText().clear();
+                    AddList(titleText);
+                    create_list.getText().clear();
                 }
             }
             return true;
@@ -86,7 +83,9 @@ public class Home extends AppCompatActivity {
         listsRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
                 lists.clear();
+
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     TList todoList = new TList();
 
@@ -100,7 +99,8 @@ public class Home extends AppCompatActivity {
 
                     lists.add(todoList);
                 }
-                listsRecyclerAdapter.notifyDataSetChanged();
+
+                listsAdapter.notifyDataSetChanged();
             }
 
             @Override
@@ -108,13 +108,6 @@ public class Home extends AppCompatActivity {
             }
         });
 
-
-
-
-        ImageButton btn_back = findViewById(R.id.back);
-        btn_back.setOnClickListener(view -> {
-            onBackPressed();
-        });
 
         TextView tv_Logout = findViewById(R.id.logout);
         tv_Logout.setOnClickListener(view -> {
@@ -124,13 +117,12 @@ public class Home extends AppCompatActivity {
 
     }
 
-    public void AddTODOList(String titleText) {
+    public void AddList(String titleText) {
         String listId = listsRef.push().getKey();
         TList newList = new TList(listId, titleText);
         listsRef.child(listId).setValue(newList);
         Toast.makeText(Home.this, "to-do list has been added successfully", Toast.LENGTH_SHORT).show();
     }
-
 
 
 }

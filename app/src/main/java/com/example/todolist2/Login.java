@@ -16,7 +16,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class Login extends AppCompatActivity {
 
 
-    EditText et_Email, et_Password;
+    EditText emaill, passwordd;
 
     private FirebaseAuth firebaseAuth;
 
@@ -34,22 +34,22 @@ public class Login extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
 
-        et_Email = findViewById(R.id.email);
-        et_Password = findViewById(R.id.password);
+        emaill = findViewById(R.id.email);
+        passwordd = findViewById(R.id.password);
 
 
         Button btn_Login = findViewById(R.id.login);
         btn_Login.setOnClickListener(view -> {
             Helpers.HideKeyboard(Login.this);
 
-            String email = et_Email.getText().toString().trim();
-            String password = et_Password.getText().toString().trim();
+            String email = emaill.getText().toString().trim();
+            String password = passwordd.getText().toString().trim();
             if (email.isEmpty()) {
-                et_Email.setError("Please enter email");
+                emaill.setError("Please enter email");
                 return;
             }
             if (password.isEmpty()) {
-                et_Password.setError("Please enter password");
+                passwordd.setError("Please enter password");
                 return;
             }
 

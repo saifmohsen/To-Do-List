@@ -1,12 +1,11 @@
 plugins {
     id 'com.android.application'
 }
-
 android {
     compileSdkVersion 30
 
     defaultConfig {
-        applicationId "com.example.todolist"
+        applicationId "com.example.todolist2"
         minSdkVersion 19
         targetSdkVersion 30
         versionCode 1
@@ -26,9 +25,10 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 }
+apply plugin: 'com.google.gms.google-services'
 
 dependencies {
-    implementation platform('com.google.firebase:firebase-bom:26.1.0')
+    implementation platform('com.google.firebase:firebase-bom:26.2.0')
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.google.firebase:firebase-auth'
     implementation 'androidx.appcompat:appcompat:1.2.0'
@@ -43,7 +43,6 @@ dependencies {
 
 }
 
-apply plugin: 'com.google.gms.google-services'
 apply plugin: 'kotlin-android'
 repositories {
     mavenCentral()

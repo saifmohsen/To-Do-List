@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,6 +42,7 @@ public class tasks extends AppCompatActivity {
     private DatabaseReference listRef;
     private String uid;
     private TextView delete_list;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -62,8 +62,9 @@ public class Home extends AppCompatActivity {
         listsAdapter = new ListAdapter(Home.this, lists);
         listRecycler.setAdapter(listsAdapter);
 
-        create_list = findViewById(R.id.create_list_category);
 
+
+        create_list = findViewById(R.id.create_list_category);
         create_list.setOnEditorActionListener((view, actionId, event) -> {
             if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId == EditorInfo.IME_ACTION_SEND) || (actionId == EditorInfo.IME_ACTION_DONE)) {
                 Helpers.HideKeyboard(Home.this);

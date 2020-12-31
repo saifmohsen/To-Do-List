@@ -77,7 +77,7 @@
         android:background="@drawable/add_style"
         android:drawableStart="@drawable/ic_add"
         android:drawablePadding="10dp"
-        android:hint="Create new list here"
+        android:hint="Create new list here, , Press Enter after finish"
         android:imeOptions="actionSend"
         android:inputType="text"
         android:paddingHorizontal="10dp"

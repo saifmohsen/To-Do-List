@@ -3,8 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@drawable/background_style"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".view">
 
     <LinearLayout
         android:id="@+id/linear_header"
@@ -47,7 +49,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/btn_cancel"
+            android:id="@+id/cancel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -58,21 +60,14 @@
             android:visibility="gone" />
     </LinearLayout>
 
-    <ProgressBar
-        android:id="@+id/loading"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="38dp"
-        android:indeterminate="true"
-        android:indeterminateTint="@color/white"
-        android:visibility="gone" />
+
+
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="19dp"
-        android:background="@drawable/vcon">
+        android:background="@drawable/view_content_backgroud">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -90,7 +85,7 @@
                 android:minWidth="100dp"
                 android:padding="8dp"
                 android:singleLine="true"
-                android:text="Meet Joseph"
+                android:text="Clean Home"
                 android:textColor="#5A5760"
                 android:textSize="24sp"
                 android:textStyle="bold"
@@ -105,7 +100,7 @@
                 android:background="@drawable/label"
                 android:backgroundTint="#86ceff"
                 android:gravity="center"
-                android:text="meet"
+                android:text="Clean"
                 android:textAllCaps="true"
                 android:textSize="9sp"
                 android:textStyle="bold"
@@ -121,7 +116,7 @@
                 android:drawableTint="@color/black"
                 android:gravity="center"
                 android:padding="8dp"
-                android:text="01 OCTOPER 2018, 10:00"
+                android:text="01 Jan 2021, 12:00 PM"
                 android:textColor="#5A5760"
                 android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -154,15 +149,17 @@
                 android:id="@+id/task_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="124dp"
                 android:gravity="top|start"
                 android:imeOptions="actionDone"
                 android:inputType="textMultiLine"
                 android:minHeight="400dp"
                 android:padding="8dp"
-                android:text="have to meet him becouse i want to show him my latest app desgin in person\n\nAlso i need to ask for advice on there:\n- style\n- interaction\n- copy"
+                android:text="Clean home early and go grandma home and clean her \nhome, Clean home early and go grandma home and clean her \nhome, "
                 android:textColor="#5A5760"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/description" />
 

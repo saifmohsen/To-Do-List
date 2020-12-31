@@ -34,12 +34,7 @@
             android:textColor="@color/white"
             android:textSize="14sp" />
 
-        <ImageButton
-            android:id="@+id/search"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/ic_search"
-            android:gravity="end" />
+
     </LinearLayout>
 
     <TextView
@@ -66,6 +61,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linear_header" />
 
+
+
     <EditText
         android:id="@+id/create_task"
         android:layout_width="match_parent"
@@ -75,7 +72,7 @@
         android:background="@drawable/add_style"
         android:drawableStart="@drawable/ic_add"
         android:drawablePadding="10dp"
-        android:hint="Create new task here"
+        android:hint="Create new task here, Press Enter after finish"
         android:imeOptions="actionSend"
         android:inputType="text"
         android:paddingHorizontal="10dp"
@@ -100,17 +97,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/create_task" />
 
-    <ProgressBar
-        android:id="@+id/loading"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="38dp"
-        android:indeterminate="true"
-        android:indeterminateTint="@color/white"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/create_task" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
